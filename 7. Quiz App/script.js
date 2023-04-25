@@ -52,6 +52,9 @@ const b_text = document.getElementById("b_text");
 const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
 const submitBtn = document.getElementById("submit");
+const resetBtn = document.getElementById("reset");
+const errorMessageEl = document.getElementById("error-message");
+const resultMessageEl = document.getElementById("result-message");
 
 let currentQuiz = 0;
 let score = 0;
@@ -61,13 +64,26 @@ loadQuiz();
 function loadQuiz() {
   deselectAnswers();
 
-  const currentQuizData = quizData[currentQuiz];
+  if (currentQuiz < quizData.length) {
+    const currentQuizData = quizData[currentQuiz];
 
-  questionEl.innerText = currentQuizData.question;
-  a_text.innerText = currentQuizData.a;
-  b_text.innerText = currentQuizData.b;
-  c_text.innerText = currentQuizData.c;
-  d_text.innerText = currentQuizData.d;
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+
+    submitBtn.style.display = "block";
+    resetBtn.style.display = "none";
+  } else {
+    resultMessageEl.innerText = `
+      Wow, ${score}/${quizData.length} correct answers on the quiz! Looks like you're on your way to becoming the next Bill Gates... or maybe just his assistant. Keep coding!`;
+    resultMessageEl.style.color = "red";
+    resultMessageEl.style.fontWeight = "bold";
+
+    submitBtn.style.display = "none";
+    resetBtn.style.display = "block";
+  }
 }
 
 function getSelected() {
@@ -88,22 +104,45 @@ function deselectAnswers() {
   });
 }
 
-submitBtn.addEventListener("click", () => {
+function showErrorMessage() {
+  errorMessageEl.innerText = "Please select an answer.";
+  errorMessageEl.style.color = "red";
+  errorMessageEl.style.fontWeight = "bold";
+}
+
+function hideErrorMessage() {
+  errorMessageEl.innerText = "";
+}
+
+function checkAnswer() {
   const answer = getSelected();
 
-  if (answer) {
+  if (!answer) {
+    showErrorMessage();
+  } else {
+    hideErrorMessage();
     if (answer === quizData[currentQuiz].correct) {
       score++;
     }
 
     currentQuiz++;
-    if (currentQuiz < quizData.length) {
-      loadQuiz();
-    } else {
-      submitBtn.innerText = `
-      Wow, ${score}/${quizData.length} correct answers on the quiz! Looks like you're on your way to becoming the next Bill Gates... or maybe just his assistant. Keep coding!`;
-      submitBtn.style.color = "red";
-      submitBtn.style.fontWeight = "bold";
-    }
+    loadQuiz();
   }
+}
+
+function resetQuiz() {
+  currentQuiz = 0;
+  score = 0;
+  loadQuiz();
+}
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  checkAnswer();
+});
+
+resetBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  resetQuiz();
+  resultMessageEl.innerText = "";
 });
