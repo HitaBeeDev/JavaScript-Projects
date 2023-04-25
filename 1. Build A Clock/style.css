@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+
+:root {
+  --primary: #71c9ce;
+  --secondary: #a6e3e9;
+  --Tertiary: #cbf1f5;
+  --Quaternary: #e3fdfd;
+  --Quinary: #393e46;
+  --Senary: #ff2e63;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: url(images/img1.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  background-color: var(--Quaternary);
+  border-radius: 50%;
+  border: 5px solid #f6f6f6;
+  position: relative;
+}
+
+.number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.3rem;
+}
+
+.number--1 {
+  --rotation: 30deg;
+}
+.number--2 {
+  --rotation: 60deg;
+}
+.number--3 {
+  --rotation: 90deg;
+}
+.number--4 {
+  --rotation: 120deg;
+}
+.number--5 {
+  --rotation: 150deg;
+}
+.number--6 {
+  --rotation: 180deg;
+}
+.number--7 {
+  --rotation: 210deg;
+}
+.number--8 {
+  --rotation: 240deg;
+}
+.number--9 {
+  --rotation: 270deg;
+}
+.number--10 {
+  --rotation: 300deg;
+}
+.number--11 {
+  --rotation: 330deg;
+}
+
+.hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  background-color: var(--Quinary);
+  border-radius: 10px solid #f6f6f6;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transform-origin: bottom;
+  z-index: 10;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after {
+  content: "";
+  position: absolute;
+  background-color: var(--Quinary);
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.hand--second {
+  width: 1.5px;
+  height: 43%;
+  background-color: var(--Senary);
+}
+
+.hand--minute {
+  width: 6px;
+  height: 40%;
+  background-color: var(--Quinary);
+}
+
+.hand--hour {
+  width: 6px;
+  height: 35%;
+  background-color: var(--Quinary);
+}
