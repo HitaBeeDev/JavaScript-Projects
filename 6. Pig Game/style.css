@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+:root {
+  --color1: #333;
+  --color2: #753682;
+  --color3: #bf2e34;
+  --color4: #c7365f;
+  --color5: #fff;
+  --color6: #ddd;
+  --color7: #444;
+  --color8: #2f2f2f;
+}
 
 * {
   margin: 0;
@@ -12,17 +23,20 @@ html {
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   height: 100vh;
-  color: #333;
-  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  color: var(--color1);
+  background-image: linear-gradient(
+    to top left,
+    var(--color2) 0%,
+    var(--color3) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* LAYOUT */
 main {
   position: relative;
   width: 100rem;
@@ -45,7 +59,6 @@ main {
   transition: all 0.75s;
 }
 
-/* ELEMENTS */
 .name {
   position: relative;
   font-size: 4rem;
@@ -59,7 +72,7 @@ main {
 .score {
   font-size: 8rem;
   font-weight: 300;
-  color: #c7365f;
+  color: var(--color4);
   margin-bottom: auto;
 }
 
@@ -78,10 +91,10 @@ main {
 }
 
 .current {
-  background-color: #c7365f;
+  background-color: var(--color4);
   opacity: 0.8;
   border-radius: 9px;
-  color: #fff;
+  color: var(--color5);
   width: 65%;
   padding: 2rem;
   text-align: center;
@@ -92,19 +105,18 @@ main {
   text-transform: uppercase;
   margin-bottom: 1rem;
   font-size: 1.7rem;
-  color: #ddd;
+  color: var(--color6);
 }
 
 .current-score {
   font-size: 3.5rem;
 }
 
-/* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: #444;
+  color: var(--color7);
   background: none;
   border: none;
   font-family: inherit;
@@ -113,11 +125,9 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
-
-  background-color: white;
+  background-color: var(--color5);
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
@@ -158,12 +168,12 @@ main {
 }
 
 .player--winner {
-  background-color: #2f2f2f;
+  background-color: var(--color8);
 }
 
 .player--winner .name {
   font-weight: 700;
-  color: #c7365f;
+  color: var(--color4);
 }
 
 .hidden {
