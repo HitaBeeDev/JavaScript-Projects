@@ -9,6 +9,7 @@ This repository comprises a collection of my personal projects, constructed enti
 - Countdown Timer
 - Drum Kit
 - Guess My Number
+- Modal
 
 
 
