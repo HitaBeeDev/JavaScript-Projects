@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
 * {
   box-sizing: border-box;
@@ -24,10 +24,10 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-h1 {
+.title {
   font-size: 3rem;
   font-weight: bold;
   margin-top: -15rem;
@@ -41,14 +41,14 @@ h1 {
   padding-top: 3.5rem;
 }
 
-h2 {
+.countdown__value {
   color: #393e46;
   font-size: 5rem;
   line-height: 1;
   margin: 0 2.4rem;
 }
 
-span {
+.countdown__label {
   font-size: 1rem;
   color: #393e46;
 }
