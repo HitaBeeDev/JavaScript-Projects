@@ -7,6 +7,8 @@ This repository comprises a collection of my personal projects, constructed enti
 ## Projects
 - Build A Clock
 - Countdown Timer
+- Drum Kit
+- Guess My Number
 
 
 
