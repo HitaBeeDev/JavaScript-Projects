@@ -10,6 +10,8 @@ This repository comprises a collection of my personal projects, constructed enti
 - Drum Kit
 - Guess My Number
 - Modal
+- Pig Game
+- Quiz App
 
 
 
